@@ -1,28 +1,33 @@
 import React from "react";
+import banner from "../assets/banner.jpg";
+import HomeAbout from "../components/Home/HomeAbout";
 
 export default function Home() {
   return (
     <>
       <div
-        className="hero min-h-screen"
+        className="hero h-[898px] w-full"
         style={{
-          backgroundImage:
-            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+          backgroundImage: `url(${banner})`,
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="hero container"></div>
+        <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+            <h5 className="mb-5 text-4xl font-ytail  text-[#68A47F]">
+              100% Natural Food
+            </h5>
+            <h1 className="mb-5 text-6xl font-bold text-primary">
+              Choose the best <br /> healthier way <br /> of life
+            </h1>
+            <button className="btn btn-lg bg-[#EFD372] text-primary">
+              Explore Now
+            </button>
           </div>
         </div>
       </div>
+
+      <HomeAbout />
     </>
   );
 }

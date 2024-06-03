@@ -6,11 +6,13 @@ import Footer from "../components/Footer";
 export default function MainLayout() {
   return (
     <>
-      <Navbar />
-      <div>
-        <Outlet />
+      <div className="font-roboto w-full">
+        <Navbar />
+        <div>
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

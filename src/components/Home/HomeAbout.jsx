@@ -20,14 +20,16 @@ export default function HomeAbout() {
           />
         </div>
 
-        <div className="flex">
-          <img src={aboutHome} alt="" />
-          <h5>About Us</h5>
-          <h1>
-            We Believe in Working
-            <br />
-            Accredited Farmers
-          </h1>
+        <div className="flex flex-col md:flex-row items-center justify-around">
+          <img src={aboutHome} className="lg:w-[600px] md:w-[320px]" alt="" />
+          <div>
+            <h5>About Us</h5>
+            <h1>
+              We Believe in Working
+              <br />
+              Accredited Farmers
+            </h1>
+          </div>
         </div>
       </div>
     </>

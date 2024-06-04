@@ -28,15 +28,15 @@ export default function DashboardLayout() {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+            <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content rounded-lg">
               {/* Sidebar content here */}
-              <li className="border-2 border-indigo-600 mb-4 rounded-xl text-lg text-violet-800">
+              <li className="border-2 border-primary mb-4 rounded-xl text-lg text-primary font-semibold">
                 <Link to={"/dashboard"}>Dashboard</Link>
               </li>
-              <li className="border-2 border-indigo-600 mb-4 rounded-xl text-lg text-violet-800">
+              <li className="border-2 border-primary text-primary font-semibold mb-4 rounded-xl text-lg ">
                 <Link to={"/dashboard/allProducts"}>All Product</Link>
               </li>
-              <li className="border-2 border-indigo-600 mb-4 rounded-xl text-lg text-purple-900">
+              <li className="border-2  border-primary text-primary font-semibold mb-4 rounded-xl text-lg ">
                 <Link to={"/dashboard/addProduct"}>Add Product</Link>
               </li>
             </ul>

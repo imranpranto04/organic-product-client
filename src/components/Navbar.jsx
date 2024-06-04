@@ -1,8 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 
 export default function Navbar() {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+    console.log("Successfully Log Out");
+  };
+
+  const navLinks = (
+    <>
+      <li>
+        <Link to={"/"}>Home</Link>
+      </li>
+      <li>
+        <Link to={"/"}>About</Link>
+      </li>
+
+      <li>
+        <Link to={"/"}>Products</Link>
+      </li>
+
+      <li>
+        <Link to={"/"}>Pages</Link>
+      </li>
+
+      <li>
+        <Link to={"/"}>News</Link>
+      </li>
+
+      <li>
+        <Link to={"/dashboard"}>Dashboard</Link>
+      </li>
+    </>
+  );
   return (
     <>
       <div className="navbar bg-base-100 container mx-auto font-bold text-primary">
@@ -28,15 +62,7 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navLinks}
             </ul>
           </div>
           <Link to={"/"} className="btn btn-ghost text-xl">
@@ -44,66 +70,54 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/"}>About</Link>
-            </li>
-
-            <li>
-              <Link to={"/"}>Products</Link>
-            </li>
-
-            <li>
-              <Link to={"/"}>Pages</Link>
-            </li>
-
-            <li>
-              <Link to={"/"}>News</Link>
-            </li>
-
-            <li>
-              <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/login"} className="btn">
-            Login
-          </Link>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="user"
+                    // src={user.photoURL}
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link to={"/profile"} className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/"}>Settings</Link>
+                </li>
+                <li>
+                  <Link to={"/login"} onClick={handleLogOut}>
+                    Logout
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+          ) : (
+            <div>
+              <Link to={"/login"} className="btn">
+                Login
+              </Link>
+              <Link to={"/register"} className="btn">
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </>

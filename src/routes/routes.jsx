@@ -8,6 +8,9 @@ import Login from "../pages/Login";
 import AllProducts from "../components/Dashboard/AllProducts";
 import AddProduct from "../components/Dashboard/AddProduct";
 import Register from "../pages/Register";
+import UserDetails from "../components/UserDetails";
+import PrivateRoute from "./private/PrivateRoute";
+import SingleProductCardDash from "../components/Dashboard/SingleProductCardDash";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/profile",
+        element: <UserDetails />,
+      },
     ],
   },
   {
@@ -31,8 +38,19 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/dashboard", element: <Dashboard /> },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+      },
       { path: "/dashboard/allProducts", element: <AllProducts /> },
+      {
+        path: "/dashboard/productDetails/:id",
+        element: <SingleProductCardDash />,
+      },
       { path: "/dashboard/addProduct", element: <AddProduct /> },
     ],
   },

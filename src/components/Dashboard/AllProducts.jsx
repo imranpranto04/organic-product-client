@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import fakeData from "../../../public/fakeData.json";
 import SingleProductCardDash from "./SingleProductCardDash";
 
 export default function AllProducts() {
-  const [items, setItems] = useState(fakeData);
+  const [items, setItems] = useState([]);
   console.log("objectitems", items);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/items")
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+    console.log("tems", items);
+  }, []);
 
   return (
     <>
@@ -13,7 +20,7 @@ export default function AllProducts() {
           All Products
         </h1>
         <div className="flex gap-4 flex-wrap justify-center ">
-          {items.items.map((item) => (
+          {items.map((item) => (
             <SingleProductCardDash item={item} key={item.id} />
           ))}
         </div>

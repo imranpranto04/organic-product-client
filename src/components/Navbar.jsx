@@ -110,7 +110,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div>
-              <Link to={"/login"} className="btn">
+              <Link to={"/login"} className="btn mr-5">
                 Login
               </Link>
               <Link to={"/register"} className="btn">

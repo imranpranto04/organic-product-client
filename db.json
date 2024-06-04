@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Avocado",
+      "image_url": "https://purepng.com/public/uploads/large/purepng.com-avocadoavocadoflowering-plantalligator-pearsingle-seedmediterraneanfoodfruit-1701527115827xmbzv.png",
+      "price": 2.99,
+      "description": "Creamy and nutritious Hass avocado."
+    },
+    {
+      "id": "2",
+      "name": "Fresh Banana",
+      "image_url": "https://static.vecteezy.com/system/resources/thumbnails/012/909/725/small_2x/bunch-of-bananas-png.png",
+      "price": 1.49,
+      "description": "Leafy green packed with vitamins and antioxidants."
+    },
+    {
+      "id": "3",
+      "name": "Organic Blueberries",
+      "image_url": "https://ganico.co.za/wp-content/uploads/2020/12/Organic-Blueberries-Ganico.jpg",
+      "price": 3.79,
+      "description": "Sweet and juicy antioxidant-rich berries."
+    },
+    {
+      "id": "4",
+      "name": "Organic Eggs",
+      "image_url": "https://e7.pngegg.com/pngimages/987/177/png-clipart-chicken-egg-chicken-egg-nutrition-egg-food-chicken-thumbnail.png",
+      "price": 0.99,
+      "description": "Nutrient-dense root vegetable."
+    },
+    {
+      "id": "5",
+      "name": "Vegan Red Tomato",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM57psjmMefuesYMzAT1l2VbKckVYnVHh7cw&s",
+      "price": 0.56,
+      "description": "Nutrient root vegetable and antioxidants."
+    }
+  ]
+}

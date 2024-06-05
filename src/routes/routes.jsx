@@ -11,6 +11,8 @@ import Register from "../pages/Register";
 import UserDetails from "../components/UserDetails";
 import PrivateRoute from "./private/PrivateRoute";
 import SingleProductCardDash from "../components/Dashboard/SingleProductCardDash";
+import ProductDetails from "../components/Dashboard/ProductDetails";
+import EditProduct from "../components/Dashboard/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +37,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -48,10 +54,18 @@ const router = createBrowserRouter([
       },
       { path: "/dashboard/allProducts", element: <AllProducts /> },
       {
-        path: "/dashboard/productDetails/:id",
-        element: <SingleProductCardDash />,
+        path: "/dashboard/allProducts/productDetails/:id",
+        element: <ProductDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/items/${params._id}`),
       },
       { path: "/dashboard/addProduct", element: <AddProduct /> },
+      {
+        path: "/dashboard/allProducts/editProduct/:id",
+        element: <EditProduct />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/items/${params._id}`),
+      },
     ],
   },
 ]);

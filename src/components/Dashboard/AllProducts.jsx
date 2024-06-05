@@ -7,11 +7,15 @@ export default function AllProducts() {
   console.log("objectitems", items);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items")
+    fetch("http://localhost:5000/items")
       .then((res) => res.json())
       .then((data) => setItems(data));
     console.log("tems", items);
   }, []);
+
+  const deleteItem = (_id) => {
+    setItems(items.filter((item) => item._id !== _id));
+  };
 
   return (
     <>
@@ -21,7 +25,11 @@ export default function AllProducts() {
         </h1>
         <div className="flex gap-4 flex-wrap justify-center ">
           {items.map((item) => (
-            <SingleProductCardDash item={item} key={item.id} />
+            <SingleProductCardDash
+              item={item}
+              key={item._id}
+              deleteItem={deleteItem}
+            />
           ))}
         </div>
       </div>

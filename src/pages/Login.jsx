@@ -25,6 +25,12 @@ export default function Login() {
       });
   };
 
+  const handleGoogleSigning = () => {
+    googleSignin().then((result) => {
+      navigate("/dashboard");
+    });
+  };
+
   return (
     <>
       <div className="container mx-auto">
@@ -80,7 +86,7 @@ export default function Login() {
                 </div>
 
                 <button
-                  onClick={googleSignin}
+                  onClick={handleGoogleSigning}
                   className="bg-yellow-500 btn my-6 text-xl text-primary"
                 >
                   Google Login
